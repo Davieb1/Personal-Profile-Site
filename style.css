@@ -2,24 +2,38 @@ body {
     background-color: rgb(4, 4, 4);
 }
 
-.item1 { grid-area: header; }
-.item2 { grid-area: image; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: image;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+}
+
+.item5 {
+    grid-area: footer;
+}
 
 .grid-container {
     display: grid;
-    grid-template-areas: 
-    "header header header header header header"
-    "image main main main right right"
-    "image footer footer footer footer footer";
+    grid-template-areas:
+        "header header header header header header"
+        "image main main main right right"
+        "image footer footer footer footer footer";
     gap: 10px;
     background-color: #f2f2de;
     padding: 10px;
 }
 
-.grid-container > div {
+.grid-container>div {
     background-color: #eaf0f6;
     text-align: center;
     padding: 20px 5px;
@@ -32,7 +46,7 @@ body {
     height: 75%;
     border-radius: 50%;
     box-shadow: 5px 5px #504f4f;
-    border:2px solid white;
+    border: 2px solid white;
 }
 
 .grid-container .item3 {
@@ -84,9 +98,11 @@ body {
 
 /* Modal Container */
 .modal {
-    display: none; /* Hidden bu default */
+    display: none;
+    /* Hidden bu default */
     position: fixed;
-    z-index: 1; /* Sit on top */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
@@ -127,4 +143,58 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Media */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-areas:
+            "header"
+            "main"
+            "right"
+            "footer";
+    }
+
+    .grid-container img {
+        display: none;
+    }
+
+    .grid-container>div {
+        font-size: 24px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    /* Tablets */
+    .grid-container {
+        grid-template-areas:
+            "header header header header"
+            "image main main right"
+            "footer footer footer footer";
+    }
+
+    .grid-container img {
+        width: 80%;
+        height: auto;
+    }
+
+    .grid-container>div {
+        font-size: 28px; /* Adjust font size for tablets */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Desktop */
+    .grid-container {
+        grid-template-areas:
+            "header header header header header header"
+            "image main main main right right"
+            "image footer footer footer footer footer";
+    }
+
+    .grid-container img {
+        width: 75%;
+    }
 }
