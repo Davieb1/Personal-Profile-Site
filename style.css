@@ -22,6 +22,44 @@ body {
     grid-area: footer;
 }
 
+/* Basic styling for the navbar */
+.nav {
+    background-color: #000;
+    overflow: hidden;
+    position: fixed; /* Ensure it stays at the top of the page */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Make sure it is above other elements */
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.nav li {
+    display: inline;
+    padding: 14px 16px;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.nav li a:hover {
+    background-color: #575757;
+    color: white;
+}
+
+.grid-container {
+    margin-top: 50px; /* Ensure the grid does not overlap the navbar */
+}
+
+
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -126,8 +164,9 @@ body {
 .modal-content img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 20%;
 }
 
 /* Close Button */
@@ -145,6 +184,22 @@ body {
     cursor: pointer;
 }
 
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+th {
+    width: 50%;
+    padding: 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.item3 ul {
+    font-size: 16px;
+}
+
 /* Media */
 @media (max-width: 600px) {
     .grid-container {
@@ -153,6 +208,10 @@ body {
             "main"
             "right"
             "footer";
+    }
+
+    .column {
+        width: 100%;
     }
 
     .grid-container img {
@@ -167,6 +226,7 @@ body {
 
 
 @media (max-width: 768px) {
+
     /* Tablets */
     .grid-container {
         grid-template-areas:
@@ -181,11 +241,13 @@ body {
     }
 
     .grid-container>div {
-        font-size: 28px; /* Adjust font size for tablets */
+        font-size: 28px;
+        /* Adjust font size for tablets */
     }
 }
 
 @media (min-width: 1024px) {
+
     /* Desktop */
     .grid-container {
         grid-template-areas:
