@@ -1,65 +1,9 @@
+/* General Styles */
 body {
     background-color: rgb(4, 4, 4);
 }
 
-.item1 {
-    grid-area: header;
-}
-
-.item2 {
-    grid-area: image;
-}
-
-.item3 {
-    grid-area: main;
-}
-
-.item4 {
-    grid-area: right;
-}
-
-.item5 {
-    grid-area: footer;
-}
-
-/* Basic styling for the navbar */
-.nav {
-    background-color: #000;
-    overflow: hidden;
-    position: fixed; /* Ensure it stays at the top of the page */
-    top: 0;
-    width: 100%;
-    z-index: 1000; /* Make sure it is above other elements */
-}
-
-.nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.nav li {
-    display: inline;
-    padding: 14px 16px;
-}
-
-.nav li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-.nav li a:hover {
-    background-color: #575757;
-    color: white;
-}
-
-.grid-container {
-    margin-top: 50px; /* Ensure the grid does not overlap the navbar */
-}
-
-
+/* Grid Container */
 .grid-container {
     display: grid;
     grid-template-areas:
@@ -69,9 +13,64 @@ body {
     gap: 10px;
     background-color: #f2f2de;
     padding: 10px;
+    margin-top: 50px; /* Ensure the grid does not overlap the navbar */
 }
 
-.grid-container>div {
+/* General styling adjustments for recipe content */
+.recipe-container {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px; /* Ensures content doesn’t stretch too wide on large screens */
+}
+
+.recipe-header {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.recipe-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Ingredients and Method Sections */
+.ingredients, .method {
+    background-color: #eaf0f6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.ingredients h3, .method h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Text content readability */
+.ingredients p, .method p, .method ul, .method ol {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Further enhancements */
+ul, ol {
+    padding-left: 20px; /* Indent lists slightly */
+}
+
+
+
+.grid-container > div {
     background-color: #eaf0f6;
     text-align: center;
     padding: 20px 5px;
@@ -87,121 +86,201 @@ body {
     border: 2px solid white;
 }
 
-.grid-container .item3 {
-    color: black;
-    font-size: large;
-    border: 2px solid black;
-    background-color: #ded7c5;
-}
-
-.grid-container .item3 button {
-    padding: 10px 20px;
-    background-color: #8dc573;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    border: 1px solid green
-}
-
-.grid-container .item3 button:hover {
-    background-color: #8cb573;
-}
-
-.grid-container .item4 {
-    color: black;
-    font-size: medium;
-    border: 2px solid black;
-    background-color: #ded7c5;
-}
-
-.grid-container .item5 {
-    background-color: #6d6b6b;
-    color: white;
-    font-size: large;
-}
-
-.item5 .facebook a:hover {
-    color: #1877f2;
-}
-
-.grid-container .item5 a {
-    color: white;
-    text-decoration: none;
-}
-
-.item5 .insta a:hover {
-    color: #c32aa3;
-}
-
-/* Modal Container */
-.modal {
-    display: none;
-    /* Hidden bu default */
+/* Navbar Styles */
+.nav {
+    background-color: #000;
+    overflow: hidden;
     position: fixed;
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #ffbb90;
-    color: #524f4f;
-    align-items: center;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 350px;
-    border-radius: 10px;
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.modal-content img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: 50% 20%;
+.nav li {
+    padding: 14px 16px;
 }
 
-/* Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: 300;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
+.nav li a {
     text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.nav li a:hover {
+    background-color: #575757;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hide by default */
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 14px;
+    background-color: #000;
+    border: none;
+}
+
+/* General Image Styling */
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Grid Area Customization */
+.item1 { grid-area: header; }
+.item2 { grid-area: image; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+/* Gallery and Blog Post Styling */
+.column {
+    flex: 1;
+    max-width: 33.33%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    width: 100%;
+    display: block; /* Ensures the images don't have extra gaps */
+}
+
+.blog-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.blog-post {
+    padding: 15px;
+    margin: 15px 0;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.blog-post h3 {
+    font-size: 22px;
+    color: #333;
+}
+
+.blog-post p {
+    font-size: 16px;
+    color: #666;
+}
+
+.blog-post button {
+    padding: 8px 12px;
+    background-color: #5d5df6;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-table {
-    width: 100%;
-    table-layout: fixed;
+.blog-post.expanded .more {
+    display: block;
+    margin-top: 10px;
+    background-color: #dfe6f3;
 }
 
-th {
-    width: 50%;
+/* To-Do List */
+.todo-container {
+    margin-top: 50px;
     padding: 10px;
-    font-weight: normal;
+    border-radius: 5px;
+    background-color: #f2f2de;
+    text-align: center;
+}
+
+.task {
+    padding: 8px;
+    margin: 4px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Quote Generator */
+.quote-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.quote-display {
+    font-size: 18px;
+    margin: 20px 0;
+    padding: 10px;
+    color: #333;
+    font-style: italic;
+    border-left: 4px solid #5d5df6;
+}
+
+/* General Button Styling */
+button {
+    padding: 10px 20px;
+    background-color: #5d5df6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 16px;
 }
 
-.item3 ul {
-    font-size: 16px;
+button:hover {
+    background-color: #4949c4;
 }
 
-/* Media */
+/* Media Queries */
+
+/* Smaller screens (below 600px) */
 @media (max-width: 600px) {
+    .nav ul {
+        display: none; /* Hide menu */
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    .nav ul.active {
+        display: flex; /* Show menu when active */
+        flex-direction: column;
+        background-color: #000;
+    }
+
     .grid-container {
         grid-template-areas:
             "header"
@@ -211,23 +290,48 @@ th {
     }
 
     .column {
-        width: 100%;
+        flex: 100%;
+        max-width: 100%;
     }
 
     .grid-container img {
-        display: none;
+        display: none; /* Adjust as needed */
     }
 
-    .grid-container>div {
+    .grid-container > div {
         font-size: 24px;
+    }
+
+    .recipe-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .ingredients, .method {
+        padding: 15px;
     }
 }
 
+/* Medium screens (tablets, up to 800px) */
+@media (min-width: 601px) and (max-width: 800px) {
+    .column {
+        flex: 50%;
+        max-width: 50%;
+    }
 
+    .grid-container img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
 
-@media (max-width: 768px) {
+    .grid-container > div {
+        font-size: 28px;
+    }
+}
 
-    /* Tablets */
+/* Large screens (desktops up to 1920px) */
+@media (min-width: 801px) and (max-width: 1920px) {
     .grid-container {
         grid-template-areas:
             "header header header header"
@@ -236,27 +340,37 @@ th {
     }
 
     .grid-container img {
-        width: 80%;
+        width: 100%;
+        max-width: 600px;
         height: auto;
     }
 
-    .grid-container>div {
-        font-size: 28px;
-        /* Adjust font size for tablets */
+    .grid-container > div {
+        font-size: 32px;
     }
 }
 
-@media (min-width: 1024px) {
-
-    /* Desktop */
+/* Ultra-large screens (4K and beyond) */
+@media (min-width: 1921px) {
     .grid-container {
         grid-template-areas:
-            "header header header header header header"
-            "image main main main right right"
-            "image footer footer footer footer footer";
+            "header header header header"
+            "image main main right"
+            "footer footer footer footer";
     }
 
     .grid-container img {
-        width: 75%;
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+    }
+
+    .grid-container > div {
+        font-size: 36px;
+    }
+
+    .column {
+        flex: 25%;
+        max-width: 25%;
     }
 }
